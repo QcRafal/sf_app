@@ -1,0 +1,15 @@
+nelmio_api_doc:
+    name: 'App Api v12366543423'
+    request_listener:
+        enabled: true
+    sandbox:
+        endpoint: '%server.scheme%://api.%server.domain%/'
+        body_format:
+            formats: [ json ]
+            default_format: json
+        accept_type: 'application/json'
+        request_format:
+            formats:
+                json: 'application/json'
+                xml: 'application/xml'
+            method: 'accept_header'

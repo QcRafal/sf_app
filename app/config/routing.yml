@@ -1,0 +1,45 @@
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    host:     auth.{domain}
+    schemes:
+        - '%server.scheme%'
+    defaults:
+        domain: '%server.domain%'
+    requirements:
+        domain: '%server.domain%'
+
+app_user:
+    resource: "@AppUserBundle/Resources/config/routing.xml"
+    prefix:   /
+    host:     auth.{domain}
+    schemes:
+        - '%server.scheme%'
+    defaults:
+        domain: '%server.domain%'
+    requirements:
+        domain: '%server.domain%'
+
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /
+    host:     docs.{domain}
+    schemes:
+        - '%server.scheme%'
+    defaults:
+        domain: '%server.domain%'
+    requirements:
+        domain: '%server.domain%'
+
+app_api:
+    resource: "@AppApiBundle/Resources/config/routing.xml"
+    prefix:   /
+    host:     api.{domain}
+    type:     rest
+    schemes:
+        - '%server.scheme%'
+    defaults:
+        domain: '%server.domain%'
+    requirements:
+        domain: '%server.domain%'

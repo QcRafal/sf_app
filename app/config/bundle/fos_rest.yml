@@ -1,0 +1,13 @@
+fos_rest:
+    body_listener: true
+    allowed_methods_listener: true
+    format_listener:
+        rules:
+            - { path: '^/', host: 'api.%server.domain%', priorities: ['json'], fallback_format: json, prefer_extension: false }
+            - { path: '^/', host: 'auth.%server.domain%', priorities: ['html'], fallback_format: html, prefer_extension: false }
+            - { path: '^/', host: 'docs.%server.domain%', priorities: ['html'], fallback_format: html, prefer_extension: false }
+    param_fetcher_listener: true
+    view:
+        view_response_listener: 'force'
+        formats:
+            json: true
